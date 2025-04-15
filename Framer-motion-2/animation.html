@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Flap Text Animation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        padding-left: 50px;
+      }
+      #text-flip {
+        font-size: 40px;
+        font-weight: bold;
+        color: #333;
+        display: flex;
+        gap: 5px;
+        position: relative;
+      }
+      .letter {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        width: 30px;
+        height: 50px;
+      }
+      .old,
+      .new {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 50px;
+        text-align: center;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      }
+      .old {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .new {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      .flip .old {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      .flip .new {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="text-flip"></div>
+ 
+    <script>
+      const textElement = document.getElementById("text-flip");
+      const texts = ["engagement", "conversion", "loyalty"];
+      let currentIndex = 0;
+      let firstRun = true;
+ 
+      function flipText() {
+        let currentText = texts[currentIndex].split("");
+        let nextIndex = (currentIndex + 1) % texts.length;
+        let nextText = texts[nextIndex].split("");
+        let maxLength = Math.max(currentText.length, nextText.length);
+        textElement.innerHTML = "";
+        for (let i = 0; i < maxLength; i++) {
+          let letterContainer = document.createElement("div");
+          letterContainer.classList.add("letter");
+          let oldSpan = document.createElement("span");
+          oldSpan.classList.add("old");
+          oldSpan.textContent = currentText[i] || " ";
+          let newSpan = document.createElement("span");
+          newSpan.classList.add("new");
+          newSpan.textContent = nextText[i] || " ";
+          newSpan.style.opacity = firstRun ? "0" : "1"; // Prevents sudden appearance
+          letterContainer.appendChild(oldSpan);
+          letterContainer.appendChild(newSpan);
+          textElement.appendChild(letterContainer);
+          setTimeout(() => {
+            letterContainer.classList.add("flip");
+            newSpan.style.opacity = "1";
+          }, i * 200);
+        }
+        setTimeout(() => {
+          currentIndex = nextIndex;
+          firstRun = false; // Fix initial load issue
+          setTimeout(flipText, 2000);
+        }, maxLength * 200 + 1000);
+      }
+ 
+      flipText();
+    </script>
+  </body>
+</html>
