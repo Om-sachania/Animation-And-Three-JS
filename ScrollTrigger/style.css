@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#page1{
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#page2{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(46, 189, 237);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+/* h1{
+    font-size: 84px;
+    padding-bottom: 10%;
+}
+h2{
+    font-size: 84px;
+} */
+#page3{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(29, 78, 224);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box{
+    height: 300px;
+    width: 300px;
+    background-color: red;
+}
+
+
+/* PIN ANIMATION  */
+
+#page2 h1{
+    font-size: 35vw;
+    text-transform: uppercase;
+}

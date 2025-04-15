@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#page2{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(11, 192, 252);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+#page3{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(13, 114, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imageDiv{
+    /* border: 2px solid black; */
+    margin-top: 48px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#imageDiv img{
+    height: 100px;
+}

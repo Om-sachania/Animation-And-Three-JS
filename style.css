@@ -1,0 +1,33 @@
+body{
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#navBar{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 36px;
+}
+
+.navItems{
+    display: flex;
+    gap: 50px;
+    font-size: 22px;
+}
+
+li{
+    list-style: none;
+}
+
+#bodyContent{
+    /* border: 2px solid blue; */
+    height: 100%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
